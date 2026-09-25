@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<style>
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; font-family: system-ui, sans-serif; background: #f8fafc; color: #1e293b; }
+.hero-img {
+    min-height: 380px;
+    background-image: url('https://picsum.photos/id/1015/1200/600');
+    background-size: cover;
+    background-position: center;
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 16px; margin: 20px; overflow: hidden;
+}
+.overlay {
+    background: rgba(0,0,0,0.55);
+    color: white; padding: 40px 24px; text-align: center;
+    width: 100%; height: 100%;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+}
+.overlay h1 { font-size: 2rem; margin-bottom: 12px; }
+.overlay p { font-size: 1rem; opacity: 0.9; margin-bottom: 22px; }
+.btn-cta { padding: 12px 28px; background: #a855f7; color: white; border: none; border-radius: 30px; font-weight: 800; cursor: pointer; }
+</style>
+</head>
+<body>
+<section class="hero-img">
+    <div class="overlay">
+        <h1>Agencia de Viagens Nacionais,
+            Descubra novas experiências</h1>
+        <p>Os melhores destinos para sua próxima viagem</p>
+        <button class="btn-cta">Explorar</button>
+    </div>
+</section>
+<script>
+// Hero com imagem — sem JS.
+</script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<style>
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; font-family: system-ui, sans-serif; background: #f8fafc; color: #1e293b; }
+.boas-vindas {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    padding: 50px 30px;
+    max-width: 1000px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+.bv-texto { flex: 1; min-width: 260px; }
+.bv-tag {
+    background: #ede9fe; color: #7c3aed;
+    padding: 5px 14px; border-radius: 20px;
+    font-size: 0.7rem; font-weight: 800;
+    letter-spacing: 1px;
+}
+.bv-texto h1 { font-size: 1.9rem; color: #1e293b; margin: 12px 0; }
+.bv-texto p { color: #64748b; font-size: 0.95rem; margin-bottom: 20px; }
+.btn-primario {
+    padding: 12px 24px; background: #a855f7; color: white;
+    border: none; border-radius: 10px;
+    font-weight: 700; cursor: pointer;
+}
+.bv-imagem { flex: 1; min-width: 260px; }
+.bv-imagem img {
+    width: 100%; border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+</style>
+</head>
+<body>
+<section class="boas-vindas">
+    <div class="bv-texto">
+        <span class="bv-tag">BEM-VINDO</span>
+        <h1>Olá! Que bom te ver por aqui 👋</h1>
+        <p>Os melhores destinos para a sua próxima viagem estão aqui!</p>
+        <button class="btn-primario">Escolha seu próximo destino</button>
+    </div>
+    <div class="bv-imagem">
+        <img src="https://picsum.photos/id/1005/500/400" alt="Boas-vindas">
+    </div>
+</section>
+<script>
+// Seção estática.
+</script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<style>
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; font-family: system-ui, sans-serif; background: #f8fafc; color: #1e293b; }
+.card-form {
+    max-width: 380px; margin: 30px auto;
+    background: white; padding: 28px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+.card-form h2 { color: #7c3aed; margin-bottom: 4px; }
+.card-form > p { color: #64748b; font-size: 0.88rem; margin-bottom: 18px; }
+.card-form label {
+    display: block; font-size: 0.85rem;
+    font-weight: 700; color: #334155;
+    margin: 10px 0 4px;
+}
+.card-form input[type="text"],
+.card-form input[type="email"],
+.card-form input[type="password"] {
+    width: 100%; padding: 11px 14px;
+    border: 2px solid #e2e8f0;
+    border-radius: 10px; font-size: 0.9rem;
+}
+.card-form input:focus { outline: none; border-color: #a855f7; }
+.check-termos {
+    display: flex !important;
+    align-items: center;
+    gap: 8px;
+    margin: 14px 0 !important;
+    font-weight: 500 !important;
+    font-size: 0.85rem;
+    color: #475569 !important;
+}
+.btn-cadastrar {
+    width: 100%; padding: 12px; margin-top: 6px;
+    background: #a855f7; color: white;
+    border: none; border-radius: 10px;
+    font-weight: 800; cursor: pointer;
+}
+.btn-cadastrar:hover { background: #9333ea; }
+</style>
+</head>
+<body>
+<div class="card-form">
+    <h2>📋 Criar Conta</h2>
+    <p>Preencha os dados abaixo</p>
+    <label>Nome completo</label>
+    <input type="text" placeholder="Seu nome">
+    <label>E-mail</label>
+    <input type="email" placeholder="seu@email.com">
+    <label>Senha</label>
+    <input type="password" placeholder="Mínimo 8 caracteres">
+    <label>Confirmar senha</label>
+    <input type="password" placeholder="Repita a senha">
+    <label class="check-termos">
+        <input type="checkbox"> Aceito os termos de uso
+    </label>
+    <button class="btn-cadastrar">CADASTRAR</button>
+</div>
+<script>
+// Validação adicional pode ser adicionada aqui.
+</script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<style>
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; font-family: system-ui, sans-serif; background: #f8fafc; color: #1e293b; }
+.produtos { padding: 50px 20px; text-align: center; }
+.produtos h2 { color: #1e293b; font-size: 1.7rem; margin-bottom: 30px; }
+.produtos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+.produto {
+    background: white;
+    border: 2px solid #e2e8f0;
+    border-radius: 14px;
+    overflow: hidden;
+    transition: 0.2s;
+    padding-bottom: 18px;
+}
+.produto:hover { border-color: #a855f7; transform: translateY(-4px); }
+.produto img { width: 100%; aspect-ratio: 3/2; object-fit: cover; }
+.produto h3 { color: #1e293b; font-size: 1rem; margin: 14px 0 4px; }
+.preco { color: #7c3aed; font-weight: 800; font-size: 1.1rem; margin-bottom: 12px; }
+.btn-comprar {
+    padding: 8px 20px;
+    background: #a855f7; color: white;
+    border: none; border-radius: 20px;
+    font-weight: 700; cursor: pointer;
+    font-size: 0.85rem;
+}
+.btn-comprar:hover { background: #9333ea; }
+</style>
+</head>
+<body>
+<section class="produtos">
+    <h2>Nossos Destinos</h2>
+    <div class="destinos-grid">
+        <div class="destino">
+            <img src="pexels-evandro-kluge-201796092-12271415.jpg" height="200" width="300" alt="Destino">
+            <h3>Passagem Fernando de Noronha</h3>
+            <p class="preco">R$ 500,00</p>
+            <button class="btn-comprar">Comprar</button>
+        </div>
+        <div class="destino">
+            <img src="pexels-arnaldo-silva-721208632-18337868 (1).jpg" height="200" width="300" alt="Destino">
+            <h3>Passagem Rio de Janeiro</h3>
+            <p class="preco">R$ 150,00</p>
+            <button class="btn-comprar">Comprar</button>
+        </div>
+        <div class="destino">
+            <img src="pexels-oz-ozzy-56680705-7876780.jpg" height="200" width="300" alt="Destino">
+            <h3>Passagem Arraial do Cabo</h3>
+            <p class="preco">R$ 200,00</p>
+            <button class="btn-comprar">Comprar</button>
+        </div>
+          <div class="destino">
+            <img src="pexels-chris-flxxx-1711952-35699522.jpg" height="200" width="300" alt="Destino">
+            <h3>Passagem São Paulo</h3>
+            <p class="preco">R$ 130,00</p>
+            <button class="btn-comprar">Comprar</button>
+        </div>
+         <div class="destino">
+            <img src="pexels-kelly-17291209.jpg" height="200" width="300" alt="Destino">
+            <h3>Passagem Brasília</h3>
+            <p class="preco">R$ 210,00</p>
+            <button class="btn-comprar">Comprar</button>
+        </div>
+        </div>
+         <div class="destino">
+            <img src="pexels-leonardodourado-16842372.jpg" height="200" width="300" alt="Destino">
+            <h3>Passagem Salvador </h3>
+            <p class="preco">R$ 400,00</p>
+            <button class="btn-comprar">Comprar</button>
+        </div>
+         </div>
+         <div class="destino">
+            <img src="pexels-adilson-vieceli-384565-1032133.jpg" height="200" width="300" alt="Destino">
+            <h3>Passagem Rio Grande do Sul</h3>
+            <p class="preco">R$ 450,00</p>
+            <button class="btn-comprar">Comprar</button>
+        </div>
+           </div>
+         <div class="destino">
+            <img src="pexels-gaion-35030487.jpg" height="200" width="300" alt="Destino">
+            <h3>Passagem Paraná</h3>
+            <p class="preco">R$ 310,00</p>
+            <button class="btn-comprar">Comprar</button>
+        </div>
+        </div>
+         <div class="destino">
+            <img src="pexels-lucasrvimieiro-5192917.jpg" height="200" width="300" alt="Destino">
+            <h3>Passagem Belo Horizonte</h3>
+            <p class="preco">R$ 250,00</p>
+            <button class="btn-comprar">Comprar</button>
+        </div>
+         </div>
+         <div class="destino">
+            <img src="pexels-pedro-lucas-269808503-37769793.jpg" height="200" width="300" alt="Destino">
+            <h3>Passagem Campos do Jordão</h3>
+            <p class="preco">R$ 300,00</p>
+            <button class="btn-comprar">Comprar</button>
+        </div>
+    </div>
+</section>
+<script>
+// Seção estática.
+</script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<style>
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; font-family: system-ui, sans-serif; background: #f8fafc; color: #1e293b; }
+.newsletter {
+    background: linear-gradient(135deg, #1e1b4b, #7c3aed);
+    color: white; padding: 50px 30px;
+    border-radius: 16px;
+    margin: 20px;
+    text-align: center;
+}
+.newsletter h2 { font-size: 1.6rem; margin-bottom: 8px; }
+.newsletter p { opacity: 0.9; margin-bottom: 22px; font-size: 0.95rem; }
+.form-news {
+    display: flex;
+    gap: 8px;
+    max-width: 460px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+.form-news input {
+    flex: 1;
+    min-width: 200px;
+    padding: 13px 16px;
+    border: none;
+    border-radius: 10px;
+    font-size: 0.9rem;
+}
+.form-news input:focus { outline: 2px solid #fbbf24; }
+.form-news button {
+    padding: 13px 24px;
+    background: #fbbf24; color: #1e1b4b;
+    border: none; border-radius: 10px;
+    font-weight: 800; cursor: pointer;
+    font-family: inherit;
+}
+.form-news button:hover { background: #f59e0b; }
+</style>
+</head>
+<body>
+<section class="newsletter">
+    <h2>Confirme a quantidade de passagens</h2>
+    <p>Confirme a quantidade de passagens para viajar</p>
+    <form class="form-news" onsubmit="event.preventDefault(); alert('Confirmado com sucesso!');">
+        <input type="email" placeholder="Digite seu e-mail" required>
+        <button type="submit">CONFIRMAR</button>
+    </form>
+</section>
+<script>
+// Validação via HTML required.
+</script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<style>
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; font-family: system-ui, sans-serif; background: #f8fafc; color: #1e293b; }
+.card-radio {
+    max-width: 440px; margin: 30px auto;
+    background: white; padding: 26px;
+    border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+.card-radio h3 { color: #1e293b; margin-bottom: 6px; }
+.card-radio p { color: #64748b; font-size: 0.88rem; margin-bottom: 20px; }
+.radio-grupo { display: flex; flex-direction: column; gap: 10px; }
+.radio-item {
+    display: flex; align-items: center; gap: 14px;
+    padding: 14px 16px; border: 2px solid #e2e8f0;
+    border-radius: 12px; cursor: pointer; transition: 0.2s;
+}
+.radio-item:hover { border-color: #a855f7; background: #faf5ff; }
+.radio-item input[type="radio"] { display: none; }
+.radio-circulo {
+    width: 20px; height: 20px; border: 2px solid #cbd5e1;
+    border-radius: 50%; position: relative; flex-shrink: 0;
+}
+.radio-item input[type="radio"]:checked + .radio-circulo {
+    border-color: #7c3aed;
+}
+.radio-item input[type="radio"]:checked + .radio-circulo::after {
+    content: ""; position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%); width: 10px; height: 10px;
+    border-radius: 50%; background: #7c3aed;
+}
+.radio-item:has(input[type="radio"]:checked) {
+    border-color: #7c3aed; background: #f5f3ff;
+}
+.radio-detalhes strong { display: block; color: #1e293b; font-size: 0.92rem; }
+.radio-detalhes small { color: #64748b; font-size: 0.8rem; }
+.resultado-radio {
+    margin-top: 18px; padding: 12px; background: #f1f5f9;
+    border-radius: 8px; color: #334155; font-size: 0.85rem;
+}
+</style>
+</head>
+<body>
+<div class="card-radio">
+    <h3>Opções de Pagamento</h3>
+    <p>Escolha a opção de pagamento:</p>
+    <div class="radio-grupo">
+        <label class="radio-item">
+            <input type="radio" name="pagamento" value="padrao" checked onchange="pagamento(this)">
+            <span class="radio-circulo"></span>
+            <div class="radio-detalhes">
+                <strong>PIX</strong>
+                <small>Tenha 10% de desconto</small>
+            </div>
+        </label>
+        <label class="radio-item">
+            <input type="radio" name="pagamento" value="expresso" onchange="pagamento(this)">
+            <span class="radio-circulo"></span>
+            <div class="radio-detalhes">
+                <strong>Cartão de crédito ou débito</strong>
+                <small>Crédito:Divida em até 12 vezes sem juros
+                       Débito:Tenha 20% de desconto</small>
+            </div>
+        </label>
+        <label class="radio-item">
+            <input type="radio" name="pagamento" value="retirada" onchange="pagamento(this)">
+            <span class="radio-circulo"></span>
+            <div class="radio-detalhes">
+                <strong>Dinheiro</strong>
+                <small>Tenha 30% de desconto</small>
+            </div>
+        </label>
+    </div>
+    <div class="resultado-radio" id="resultadopagamento">
+        Opção atual: <b>PIX</b>
+    </div>
+</div>
+<script>
+function atualizarFrete(radio) {
+    const titulos = {
+        padrao: "PIX",
+    };
+    document.getElementById("pagamento").innerHTML = 
+        "Opção atual: <b>" + titulos[radio.value] + "</b>";
+}
+</script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Viagem confirmada com sucesso!</h2>
+    <h3>Boa viagem,aproveite!</h3>
+</body>
+</html>

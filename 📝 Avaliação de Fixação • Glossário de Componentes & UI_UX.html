@@ -1,0 +1,1839 @@
+<!DOCTYPE html>
+<!-- saved from url=(0045)https://almeida-cma.github.io/mob07/form.html -->
+<html lang="pt-BR"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📝 Avaliação de Fixação • Glossário de Componentes &amp; UI/UX</title>
+    <style>
+        /* ============================================================
+           RESET E ESTILOS GERAIS
+           ============================================================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #090d16 0%, #1e1b4b 50%, #0f172a 100%);
+            padding: 24px 14px 60px;
+            min-height: 100vh;
+            color: #1e293b;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+        /* ============================================================
+           HEADER PRINCIPAL
+           ============================================================ */
+        .header {
+            background: linear-gradient(135deg, #a855f7 0%, #ec4899 50%, #f59e0b 100%);
+            border-radius: 20px;
+            padding: 34px 24px;
+            margin-bottom: 24px;
+            text-align: center;
+            color: #fff;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+        }
+
+        .header h1 {
+            font-size: 2.1rem;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+
+        .header h1 span { color: #fef08a; }
+
+        .header p {
+            opacity: 0.95;
+            font-size: 1rem;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .badge-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: center;
+            margin-top: 16px;
+        }
+
+        .badge {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 5px 14px;
+            border-radius: 30px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: #fff;
+            backdrop-filter: blur(5px);
+        }
+
+        /* ============================================================
+           CARD DE IDENTIFICAÇÃO DO ESTUDANTE
+           ============================================================ */
+        .card-aluno {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 22px 26px;
+            margin-bottom: 22px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+            border-left: 6px solid #a855f7;
+        }
+
+        .card-aluno h3 {
+            color: #1e1b4b;
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .campos-aluno {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 14px;
+        }
+
+        .campo-box label {
+            display: block;
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: #475569;
+            margin-bottom: 4px;
+        }
+
+        .campo-box input {
+            width: 100%;
+            padding: 10px 14px;
+            border: 2px solid #cbd5e1;
+            border-radius: 8px;
+            font-size: 0.92rem;
+            font-family: inherit;
+            outline: none;
+            transition: 0.2s;
+        }
+
+        .campo-box input:focus {
+            border-color: #a855f7;
+            box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.15);
+        }
+
+        /* ============================================================
+           CARD DE QUESTÕES
+           ============================================================ */
+        .card-quiz {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 28px;
+            margin-bottom: 24px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-quiz h2 {
+            color: #7c3aed;
+            margin-bottom: 18px;
+            border-left: 5px solid #a855f7;
+            padding-left: 12px;
+            font-size: 1.35rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .question {
+            background: #f8fafc;
+            border-radius: 12px;
+            padding: 16px 20px;
+            margin-bottom: 16px;
+            border-left: 4px solid #a855f7;
+            border-top: 1px solid #e2e8f0;
+            border-right: 1px solid #e2e8f0;
+            border-bottom: 1px solid #e2e8f0;
+            transition: border-color 0.2s;
+        }
+
+        .question.tf { border-left-color: #0284c7; }
+
+        .question-header {
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .question-number {
+            background: #a855f7;
+            color: white;
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 26px;
+            font-size: 12px;
+            font-weight: bold;
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+
+        .question.tf .question-number { background: #0284c7; }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .options.tf {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            max-width: 340px;
+        }
+
+        .option {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 14px;
+            background: white;
+            border-radius: 8px;
+            border: 2px solid #e2e8f0;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .option:hover:not(.disabled) {
+            border-color: #a855f7;
+            background: #faf5ff;
+        }
+
+        .option input[type="radio"] {
+            width: 16px;
+            height: 16px;
+            cursor: pointer;
+            flex-shrink: 0;
+            accent-color: #a855f7;
+        }
+
+        .option label {
+            font-size: 0.88rem;
+            cursor: pointer;
+            flex: 1;
+            line-height: 1.4;
+            color: #334155;
+        }
+
+        .option.correct {
+            border-color: #16a34a !important;
+            background: #dcfce7 !important;
+            font-weight: bold;
+        }
+
+        .option.wrong {
+            border-color: #dc2626 !important;
+            background: #fee2e2 !important;
+        }
+
+        .option.disabled {
+            cursor: default;
+        }
+
+        /* ============================================================
+           PAINEL DE RESULTADOS & RELATÓRIO
+           ============================================================ */
+        .result-box {
+            background: #ffffff;
+            border-radius: 18px;
+            padding: 26px;
+            border: 3px solid #a855f7;
+            display: none;
+            margin-top: 24px;
+            box-shadow: 0 10px 30px rgba(168,85,247,0.15);
+        }
+
+        .result-box.show { display: block; }
+
+        .score-container {
+            text-align: center;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e2e8f0;
+            margin-bottom: 20px;
+        }
+
+        .score {
+            font-size: 3.2rem;
+            font-weight: 900;
+            color: #7c3aed;
+        }
+
+        .score-status {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #1e1b4b;
+            margin-top: 4px;
+        }
+
+        .score-meta {
+            font-size: 0.88rem;
+            color: #64748b;
+            margin-top: 6px;
+        }
+
+        .feedback-item {
+            padding: 12px 10px;
+            border-bottom: 1px solid #f1f5f9;
+            text-align: left;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .feedback-item.correct { color: #15803d; }
+        .feedback-item.wrong { color: #b91c1c; }
+
+        .feedback-item .explicacao {
+            color: #475569;
+            font-size: 0.84rem;
+            margin-top: 4px;
+            padding-left: 20px;
+            font-style: italic;
+        }
+
+        /* Caixa de relatório em texto para copiar */
+        .relatorio-textarea-box {
+            margin-top: 24px;
+            padding: 18px;
+            background: #f8fafc;
+            border-radius: 12px;
+            border: 1px solid #cbd5e1;
+            text-align: left;
+        }
+
+        .relatorio-textarea-box h4 {
+            color: #1e1b4b;
+            font-size: 0.95rem;
+            margin-bottom: 8px;
+        }
+
+        .relatorio-textarea {
+            width: 100%;
+            height: 120px;
+            padding: 10px;
+            font-family: monospace;
+            font-size: 0.8rem;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            background: white;
+            color: #334155;
+            resize: vertical;
+        }
+
+        /* ============================================================
+           BOTÕES GLOBAIS
+           ============================================================ */
+        .btn-grupo {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 24px;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #a855f7, #ec4899);
+            color: white;
+            border: none;
+            padding: 12px 26px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 0.95rem;
+            font-weight: 700;
+            transition: all 0.2s;
+            font-family: inherit;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(168, 85, 247, 0.35);
+        }
+
+        .btn-secondary { background: #64748b; }
+        .btn-secondary:hover { background: #475569; box-shadow: none; }
+        .btn-success { background: #10b981; }
+        .btn-success:hover { background: #059669; box-shadow: 0 6px 18px rgba(16,185,129,0.3); }
+
+        /* ============================================================
+           RODAPÉ DE ENTREGA
+           ============================================================ */
+        .footer-card {
+            background: white;
+            border-radius: 20px;
+            padding: 26px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .destaque-footer {
+            background: #fffbe8;
+            padding: 14px 18px;
+            border-radius: 12px;
+            border-left: 5px solid #f59e0b;
+            margin-bottom: 18px;
+            font-size: 0.88rem;
+            color: #854d0e;
+            line-height: 1.6;
+            text-align: left;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            margin-top: 14px;
+        }
+
+        .footer-link {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 22px;
+            background: #f8fafc;
+            border-radius: 12px;
+            text-decoration: none;
+            color: #1e293b;
+            transition: all 0.25s;
+            border: 2px solid #22c55e;
+            font-size: 0.95rem;
+            max-width: 480px;
+            width: 100%;
+        }
+
+        .footer-link:hover {
+            transform: translateY(-2px);
+            background: #f0fdf4;
+            box-shadow: 0 6px 20px rgba(34, 197, 94, 0.2);
+        }
+
+        /* Botão Flutuante Voltar ao Topo */
+        .btn-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #a855f7;
+            color: white;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: 700;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+            font-family: inherit;
+            z-index: 100;
+        }
+
+        /* ============================================================
+           MODO IMPRESSÃO (@media print)
+           ============================================================ */
+        @media print {
+            body {
+                background: white;
+                color: black;
+                padding: 0;
+            }
+            .header, .btn-grupo, .btn-top, .footer-card, .relatorio-textarea-box button {
+                display: none !important;
+            }
+            .card-quiz, .card-aluno, .result-box {
+                box-shadow: none !important;
+                border: 1px solid #ccc !important;
+                padding: 14px !important;
+            }
+            .question {
+                page-break-inside: avoid;
+                border: 1px solid #ddd !important;
+                background: white !important;
+            }
+            .result-box {
+                display: block !important;
+            }
+        }
+
+        @media (max-width: 650px) {
+            .campos-aluno { grid-template-columns: 1fr; }
+            .options.tf { grid-template-columns: 1fr; }
+            .header h1 { font-size: 1.5rem; }
+            .card-quiz { padding: 18px 14px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container" id="topo">
+
+    <!-- HEADER -->
+    <header class="header">
+        <h1>📝 TEMA <span>07</span> • Avaliação de Fixação</h1>
+        <p>Glossário de Componentes de Interface, Containers de Layout, Atomic Design e Nomenclatura Padrão de Mercado</p>
+        <div class="badge-group">
+            <span class="badge">🎨 25 Questões Oficiais</span>
+            <span class="badge">⚛️ Atomic Design</span>
+            <span class="badge">📐 Containers &amp; Layout</span>
+            <span class="badge">📊 Relatório Automático</span>
+            <span class="badge">🖨️ Pronto para PDF</span>
+        </div>
+    </header>
+
+    <!-- IDENTIFICAÇÃO DO ALUNO -->
+    <div class="card-aluno">
+        <h3>👤 Identificação do Estudante</h3>
+        <div class="campos-aluno">
+            <div class="campo-box">
+                <label for="nomeAluno">Nome Completo:</label>
+                <input type="text" id="nomeAluno" placeholder="Digite seu nome completo...">
+            </div>
+            <div class="campo-box">
+                <label for="turmaAluno">Turma / Matrícula:</label>
+                <input type="text" id="turmaAluno" placeholder="Ex: Mobile 2026 - T2">
+            </div>
+        </div>
+    </div>
+
+    <!-- ÁREA DO QUIZ (25 QUESTÕES) -->
+    <section class="card-quiz">
+        <h2>📋 Questões de Fixação (1 a 25)</h2>
+
+        <form id="formQuiz">
+            <!-- As 25 questões são injetadas via JavaScript para garantir organização perfeita -->
+            <div id="questoesContainer"><div class="question " id="q1">
+            <div class="question-header">
+                <span class="question-number">1</span>
+                <div>No Atomic Design de Brad Frost, um botão isolado com seu estilo visual é categorizado em qual nível?</div>
+            </div>
+            <div class="options ">
+                
+                <div class="option correct disabled" onclick="selecionarOpcao(this)">
+                    <input type="radio" name="q1" value="A" disabled="">
+                    <label>Átomo</label>
+                </div>
+            
+                <div class="option disabled" onclick="selecionarOpcao(this)">
+                    <input type="radio" name="q1" value="B" disabled="">
+                    <label>Molécula</label>
+                </div>
+            
+                <div class="option disabled" onclick="selecionarOpcao(this)">
+                    <input type="radio" name="q1" value="C" disabled="">
+                    <label>Organismo</label>
+                </div>
+            
+                <div class="option disabled" onclick="selecionarOpcao(this)">
+                    <input type="radio" name="q1" value="D" disabled="">
+                    <label>Template</label>
+                </div>
+            
+            </div>
+        </div><div class="question " id="q2">
+            <div class="question-header">
+                <span class="question-number">2</span>
+                <div>Qual a principal diferença de comportamento e experiência (UX) entre um Modal (Dialog) e um Drawer (Gaveta lateral)?</div>
+            </div>
+            <div class="options ">
+                
+                <div class="option disabled" onclick="selecionarOpcao(this)">
+                    <input type="radio" name="q2" value="A" disabled="">
+                    <label>O Modal nunca possui backdrop; o Drawer sempre escurece toda a tela.</label>
+                </div>
+            
+                <div class="option correct disabled" onclick="selecionarOpcao(this)">
+                    <input type="radio" name="q2" value="B" disabled="">
+                    <label>O Modal centraliza e bloqueia totalmente o fluxo com backdrop; o Drawer surge pela lateral preservando o contexto da tela.</label>
+                </div>
+            
+                <div class="option disabled" onclick="selecionarOpcao(this)">
+                    <input type="radio" name="q2" value="C" disabled="">
+                    <label>O Modal só funciona em telas mobile; o Drawer só pode ser usado em desktops.</label>
+                </div>
+            
+                <div class="option disabled" onclick="selecionarOpcao(this)">
+                    <input type="radio" name="q2" value="D" disabled="">
+                    <label>Não há diferença conceitual, são apenas nomes sinônimos do Figma.</label>
+                </div>
+            
+            </div>
+        </div><div class="question " id="q3">
+            <div class="question-header">
+                <span class="question-number">3</span>
+                <div>Ao projetar a tela de preferências de um aplicativo onde o usuário ativa ou desativa o "Modo Noturno" com efeito instantâneo, qual componente é o mais indicado?</div>
+            </div>
+            <div class="options ">
+                
+                <div class="option disabled" onclick="selecionarOpcao(this)">
+                    <input type="radio" name="q3" value="A" disabled="">
+                    <label>Caixa de Seleção (Checkbox)</label>
+                </div>
+            
+                <div class="option disabled" onclick="selecionarOpcao(this)">
+                    <input type="radio" name="q3" value="B" disabled="">
+                    <label>Botão de Rádio (Radio Button)</label>
+                </div>
+            
+                <div class="option correct disabled" onclick="selecionarOpcao(this)">
+                    <input type="radio" name="q3" value="C" disabled="">
+                    <label>Interruptor (Switch / Toggle)</label>
+                </div>
+            
+                <div class="option disabled" onclick="selecionarOpcao(this)">
+                    <input type="radio" name="q3" value="D" disabled="">
+                    <label>Menu Suspenso (Dropdown Select)</label>
+                </div>
+            
+            </div>
+        </div><div class="question " id="q4">
+            <div class="question-header">
+                <span class="question-number">4</span>
+                <div>Em relação ao Botão de Ação Flutuante (FAB - Floating Action Button), qual é a regra de ouro recomendada pelas diretrizes de UI?</div>
+            </div>
+            <div class="options ">
+                
+                <div class="option disabled" onclick="selecionarOpcao(this)">
+                    <input type="radio" name="q4" value="A" disabled="">
+                    <label>Colocar pelo menos 3 FABs em cantos diferentes da tela para facilitar o acesso.</label>
+                </div>
+            
+                <div class="option disabled" onclick="selecionarOpcao(this)">
+                    <input type="radio" name="q4" value="B" disabled="">
+                    <label>O FAB deve sempre conter um parágrafo de texto explicativo no interior.</label>
+                </div>
+            
+                <div class="option disabled" onclick="selecionarOpcao(this)">
+                    <input type="radio" name="q4" value="C" disabled="">
+                    <label>O FAB deve se mover junto com o scroll do texto até sair da visão.</label>
+                </div>
+            
+                <div class="option correct disabled" onclick="selecionarOpcao(this)">
+                    <input type="radio" name="q4" value="D" disabled="">
+                    <label>Ter apenas um único FAB soberano por tela, representando a ação primária e mais construtiva.</label>
+                </div>
+            
+            </div>
+        </div><div class="question " id="q5">
+            <div class="question-header">
+                <span class="question-number">5</span>
+                <div>A Seção de Destaque situada no topo de uma Landing Page (imediatamente abaixo do menu e acima da dobra) recebe qual nomenclatura de mercado?</div>
+            </div>
+            <div class="options ">
+                
+                <div class="option disabled" onclick="selecionarOpcao(this)">
+                    <input type="radio" name="q5" value="A" disabled="">
+                    <label>Accordion Panel</label>
+                </div>
+            
+                <div class="option correct disabled" onclick="selecionarOpcao(this)">
+                    <input type="radio" name="q5" value="B" disabled="">
+                    <label>Hero Section (ou Jumbotron)</label>
+                </div>
+            
+                <div class="option disabled" onclick="selecionarOpcao(this)">
+                    <input type="radio" name="q5" value="C" disabled="">
+                    <label>Mega Footer</label>
+                </div>
+            
+                <div class="option disabled" onclick="selecionarOpcao(this)">
+                    <input type="radio" name="q5" value="D" disabled="">
+                    <label>Bottom Sheet</label>
+                </div>
+            
+            </div>
+        </div><div class="question " id="q6">
+            <div class="question-header">
+                <span class="question-number">6</span>
+                <div>Para dividir um checkout de compras complexo em etapas sequenciais obrigatórias (1. Dados -&gt; 2. Entrega -&gt; 3. Pagamento), qual componente deve ser adotado?</div>
+            </div>
+            <div class="options ">
+                
+                <div class="option disabled" onclick="selecionarOpcao(this)">
+                    <input type="radio" name="q6" value="A" disabled="">
+                    <label>Abas paralelas (Tabs)</label>
+                </div>
+            
+                <div class="option disabled" onclick="selecionarOpcao(this)">
+                    <input type="radio" name="q6" value="B" disabled="">
+                    <label>Trilha de Pão (Breadcrumbs)</label>
+                </div>
+            
+                <div class="option correct disabled" onclick="selecionarOpcao(this)">
+                    <input type="radio" name="q6" value="C" disabled="">
+                    <label>Passo a Passo (Stepper / Wizard)</label>
+                </div>
+            
+                <div class="option disabled" onclick="selecionarOpcao(this)">
+                    <input type="radio" name="q6" value="D" disabled="">
+                    <label>Tooltip</label>
+                </div>
+            
+            </div>
+        </div><div class="question " id="q7">
+            <div class="question-header">
+                <span class="question-number">7</span>
+                <div>Qual a vantagem de usar Esqueletos de Carregamento (Skeleton Screen) em vez de Spinners (rodinhas giratórias) enquanto dados são carregados da API?</div>
+            </div>
+            <div class="options ">
+                
+                <div class="option disabled" onclick="selecionarOpcao(this)">
+                    <input type="radio" name="q7" value="A" disabled="">
+                    <label>Garantem que a página gaste zero dados de internet.</label>
+                </div>
+            
+                <div class="option disabled" onclick="selecionarOpcao(this)">
+                    <input type="radio" name="q7" value="B" disabled="">
+                    <label>Funcionam sem a necessidade de nenhuma conexão de rede.</label>
+                </div>
+            
+                <div class="option disabled" onclick="selecionarOpcao(this)">
+                    <input type="radio" name="q7" value="C" disabled="">
+                    <label>Substituem a necessidade de usar banco de dados.</label>
+                </div>
+            
+                <div class="option correct disabled" onclick="selecionarOpcao(this)">
+                    <input type="radio" name="q7" value="D" disabled="">
+                    <label>Reduzem a percepção do tempo de espera e previnem saltos bruscos de layout (Layout Shifts).</label>
+                </div>
+            
+            </div>
+        </div><div class="question " id="q8">
+            <div class="question-header">
+                <span class="question-number">8</span>
+                <div>A trilha textual horizontal "Início &gt; Eletro &gt; Telefonia &gt; Fones de Ouvido" é conhecida como:</div>
+            </div>
+            <div class="options ">
+                
+                <div class="option correct disabled" onclick="selecionarOpcao(this)">
+                    <input type="radio" name="q8" value="A" disabled="">
+                    <label>Trilha de Navegação (Breadcrumb)</label>
+                </div>
+            
+                <div class="option disabled" onclick="selecionarOpcao(this)">
+                    <input type="radio" name="q8" value="B" disabled="">
+                    <label>Barra Inferior (Bottom Navigation)</label>
+                </div>
+            
+                <div class="option disabled" onclick="selecionarOpcao(this)">
+                    <input type="radio" name="q8" value="C" disabled="">
+                    <label>Menu Flutuante (Popover)</label>
+                </div>
+            
+                <div class="option disabled" onclick="selecionarOpcao(this)">
+                    <input type="radio" name="q8" value="D" disabled="">
+                    <label>Sanfona (Accordion)</label>
+                </div>
+            
+            </div>
+        </div><div class="question " id="q9">
+            <div class="question-header">
+                <span class="question-number">9</span>
+                <div>Uma mensagem sutil que aparece no canto inferior da tela dizendo "Link copiado!" e desaparece sozinha após 3 segundos é um:</div>
+            </div>
+            <div class="options ">
+                
+                <div class="option disabled" onclick="selecionarOpcao(this)">
+                    <input type="radio" name="q9" value="A" disabled="">
+                    <label>Modal de Exclusão</label>
+                </div>
+            
+                <div class="option correct disabled" onclick="selecionarOpcao(this)">
+                    <input type="radio" name="q9" value="B" disabled="">
+                    <label>Toast / Snackbar</label>
+                </div>
+            
+                <div class="option disabled" onclick="selecionarOpcao(this)">
+                    <input type="radio" name="q9" value="C" disabled="">
+                    <label>Banner Crítico de Alerta</label>
+                </div>
+            
+                <div class="option disabled" onclick="selecionarOpcao(this)">
+                    <input type="radio" name="q9" value="D" disabled="">
+                    <label>Drawer Lateral</label>
+                </div>
+            
+            </div>
+        </div><div class="question " id="q10">
+            <div class="question-header">
+                <span class="question-number">10</span>
+                <div>Em aplicativos móveis, a superfície que sobe a partir da base da tela aproveitando a ergonomia do polegar para ações rápidas chama-se:</div>
+            </div>
+            <div class="options ">
+                
+                <div class="option disabled" onclick="selecionarOpcao(this)">
+                    <input type="radio" name="q10" value="A" disabled="">
+                    <label>Accordion</label>
+                </div>
+            
+                <div class="option disabled" onclick="selecionarOpcao(this)">
+                    <input type="radio" name="q10" value="B" disabled="">
+                    <label>Breadcrumb</label>
+                </div>
+            
+                <div class="option correct disabled" onclick="selecionarOpcao(this)">
+                    <input type="radio" name="q10" value="C" disabled="">
+                    <label>Folha Inferior (Bottom Sheet)</label>
+                </div>
+            
+                <div class="option disabled" onclick="selecionarOpcao(this)">
+                    <input type="radio" name="q10" value="D" disabled="">
+                    <label>Hero Banner</label>
+                </div>
+            
+            </div>
+        </div><div class="question " id="q11">
+            <div class="question-header">
+                <span class="question-number">11</span>
+                <div>Qual erro grave de usabilidade ocorre quando um designer remove o rótulo (label) de um campo e deixa apenas o placeholder?</div>
+            </div>
+            <div class="options ">
+                
+                <div class="option disabled" onclick="selecionarOpcao(this)">
+                    <input type="radio" name="q11" value="A" disabled="">
+                    <label>O campo passa a aceitar apenas letras maiúsculas.</label>
+                </div>
+            
+                <div class="option disabled" onclick="selecionarOpcao(this)">
+                    <input type="radio" name="q11" value="B" disabled="">
+                    <label>O navegador recarrega a página automaticamente.</label>
+                </div>
+            
+                <div class="option disabled" onclick="selecionarOpcao(this)">
+                    <input type="radio" name="q11" value="C" disabled="">
+                    <label>A tela fica em preto e branco.</label>
+                </div>
+            
+                <div class="option correct disabled" onclick="selecionarOpcao(this)">
+                    <input type="radio" name="q11" value="D" disabled="">
+                    <label>Quando o usuário digita a primeira letra, a dica desaparece e ele perde a referência do que o campo solicitava.</label>
+                </div>
+            
+            </div>
+        </div><div class="question " id="q12">
+            <div class="question-header">
+                <span class="question-number">12</span>
+                <div>Em um formulário onde o cliente precisa escolher uma única forma de entrega entre 3 opções disponíveis (Econômica, Expressa ou Retirada), o componente mais transparente é:</div>
+            </div>
+            <div class="options ">
+                
+                <div class="option correct disabled" onclick="selecionarOpcao(this)">
+                    <input type="radio" name="q12" value="A" disabled="">
+                    <label>Botões de Rádio (Radio Buttons)</label>
+                </div>
+            
+                <div class="option disabled" onclick="selecionarOpcao(this)">
+                    <input type="radio" name="q12" value="B" disabled="">
+                    <label>Caixas de Seleção (Checkboxes)</label>
+                </div>
+            
+                <div class="option disabled" onclick="selecionarOpcao(this)">
+                    <input type="radio" name="q12" value="C" disabled="">
+                    <label>Interruptor (Switch)</label>
+                </div>
+            
+                <div class="option disabled" onclick="selecionarOpcao(this)">
+                    <input type="radio" name="q12" value="D" disabled="">
+                    <label>Tooltip</label>
+                </div>
+            
+            </div>
+        </div><div class="question " id="q13">
+            <div class="question-header">
+                <span class="question-number">13</span>
+                <div>O que são "Design Tokens" em um Design System moderno?</div>
+            </div>
+            <div class="options ">
+                
+                <div class="option disabled" onclick="selecionarOpcao(this)">
+                    <input type="radio" name="q13" value="A" disabled="">
+                    <label>Criptomoedas criadas para pagar designers freelance.</label>
+                </div>
+            
+                <div class="option correct disabled" onclick="selecionarOpcao(this)">
+                    <input type="radio" name="q13" value="B" disabled="">
+                    <label>Decisões visuais atômicas (cores, espaçamentos, tipografia) armazenadas como variáveis reutilizáveis.</label>
+                </div>
+            
+                <div class="option disabled" onclick="selecionarOpcao(this)">
+                    <input type="radio" name="q13" value="C" disabled="">
+                    <label>Senhas de acesso exclusivas para abrir o painel de administração.</label>
+                </div>
+            
+                <div class="option disabled" onclick="selecionarOpcao(this)">
+                    <input type="radio" name="q13" value="D" disabled="">
+                    <label>Imagens exportadas exclusivamente no formato SVG.</label>
+                </div>
+            
+            </div>
+        </div><div class="question " id="q14">
+            <div class="question-header">
+                <span class="question-number">14</span>
+                <div>No Atomic Design, a união de um campo de busca (Átomo Input) com um botão pesquisar (Átomo Botão) forma:</div>
+            </div>
+            <div class="options ">
+                
+                <div class="option disabled" onclick="selecionarOpcao(this)">
+                    <input type="radio" name="q14" value="A" disabled="">
+                    <label>Um Template</label>
+                </div>
+            
+                <div class="option disabled" onclick="selecionarOpcao(this)">
+                    <input type="radio" name="q14" value="B" disabled="">
+                    <label>Outro Átomo</label>
+                </div>
+            
+                <div class="option correct disabled" onclick="selecionarOpcao(this)">
+                    <input type="radio" name="q14" value="C" disabled="">
+                    <label>Uma Molécula</label>
+                </div>
+            
+                <div class="option disabled" onclick="selecionarOpcao(this)">
+                    <input type="radio" name="q14" value="D" disabled="">
+                    <label>Uma Página</label>
+                </div>
+            
+            </div>
+        </div><div class="question " id="q15">
+            <div class="question-header">
+                <span class="question-number">15</span>
+                <div>Em uma barra de navegação inferior mobile (Bottom Navigation Bar), qual é a quantidade máxima recomendada de destinos?</div>
+            </div>
+            <div class="options ">
+                
+                <div class="option disabled" onclick="selecionarOpcao(this)">
+                    <input type="radio" name="q15" value="A" disabled="">
+                    <label>De 8 a 12 itens</label>
+                </div>
+            
+                <div class="option disabled" onclick="selecionarOpcao(this)">
+                    <input type="radio" name="q15" value="B" disabled="">
+                    <label>Apenas 1 item</label>
+                </div>
+            
+                <div class="option disabled" onclick="selecionarOpcao(this)">
+                    <input type="radio" name="q15" value="C" disabled="">
+                    <label>Quantos couberem sem limite</label>
+                </div>
+            
+                <div class="option correct disabled" onclick="selecionarOpcao(this)">
+                    <input type="radio" name="q15" value="D" disabled="">
+                    <label>De 3 a 5 itens</label>
+                </div>
+            
+            </div>
+        </div><div class="question " id="q16">
+            <div class="question-header">
+                <span class="question-number">16</span>
+                <div>Qual a principal função do componente "Accordion" (Sanfona) em uma página de FAQ?</div>
+            </div>
+            <div class="options ">
+                
+                <div class="option disabled" onclick="selecionarOpcao(this)">
+                    <input type="radio" name="q16" value="A" disabled="">
+                    <label>Tocar uma música quando o mouse passa sobre o título.</label>
+                </div>
+            
+                <div class="option correct disabled" onclick="selecionarOpcao(this)">
+                    <input type="radio" name="q16" value="B" disabled="">
+                    <label>Compactar respostas longas, revelando o texto apenas quando o usuário clica na pergunta.</label>
+                </div>
+            
+                <div class="option disabled" onclick="selecionarOpcao(this)">
+                    <input type="radio" name="q16" value="C" disabled="">
+                    <label>Mudar a cor de fundo de todo o monitor do usuário.</label>
+                </div>
+            
+                <div class="option disabled" onclick="selecionarOpcao(this)">
+                    <input type="radio" name="q16" value="D" disabled="">
+                    <label>Impedir que robôs leiam o conteúdo da página.</label>
+                </div>
+            
+            </div>
+        </div><div class="question " id="q17">
+            <div class="question-header">
+                <span class="question-number">17</span>
+                <div>O componente "Card" (Cartão) em UI design é definido como:</div>
+            </div>
+            <div class="options ">
+                
+                <div class="option disabled" onclick="selecionarOpcao(this)">
+                    <input type="radio" name="q17" value="A" disabled="">
+                    <label>Uma etiqueta de apenas uma palavra usada para indicar preços.</label>
+                </div>
+            
+                <div class="option disabled" onclick="selecionarOpcao(this)">
+                    <input type="radio" name="q17" value="B" disabled="">
+                    <label>Um comando do terminal do Linux.</label>
+                </div>
+            
+                <div class="option correct disabled" onclick="selecionarOpcao(this)">
+                    <input type="radio" name="q17" value="C" disabled="">
+                    <label>Um recipiente autônomo com bordas/sombra que agrupa informações heterogêneas sobre um único assunto.</label>
+                </div>
+            
+                <div class="option disabled" onclick="selecionarOpcao(this)">
+                    <input type="radio" name="q17" value="D" disabled="">
+                    <label>Um link invisível que só funciona com comando de voz.</label>
+                </div>
+            
+            </div>
+        </div><div class="question " id="q18">
+            <div class="question-header">
+                <span class="question-number">18</span>
+                <div>Para selecionar múltiplos interesses em um cadastro (ex: Esportes, Cinema e Música ao mesmo tempo), deve-se utilizar:</div>
+            </div>
+            <div class="options ">
+                
+                <div class="option disabled" onclick="selecionarOpcao(this)">
+                    <input type="radio" name="q18" value="A" disabled="">
+                    <label>Botões de Rádio (Radio Buttons)</label>
+                </div>
+            
+                <div class="option disabled" onclick="selecionarOpcao(this)">
+                    <input type="radio" name="q18" value="B" disabled="">
+                    <label>Breadcrumbs</label>
+                </div>
+            
+                <div class="option disabled" onclick="selecionarOpcao(this)">
+                    <input type="radio" name="q18" value="C" disabled="">
+                    <label>Hero Section</label>
+                </div>
+            
+                <div class="option correct disabled" onclick="selecionarOpcao(this)">
+                    <input type="radio" name="q18" value="D" disabled="">
+                    <label>Caixas de Seleção (Checkboxes)</label>
+                </div>
+            
+            </div>
+        </div><div class="question " id="q19">
+            <div class="question-header">
+                <span class="question-number">19</span>
+                <div>Qual o papel do indicador visual de "Focus" (borda ou anel contrastante) em campos e botões?</div>
+            </div>
+            <div class="options ">
+                
+                <div class="option disabled" onclick="selecionarOpcao(this)">
+                    <input type="radio" name="q19" value="A" disabled="">
+                    <label>Deixar o site mais lento de propósito para carregar animações.</label>
+                </div>
+            
+                <div class="option correct disabled" onclick="selecionarOpcao(this)">
+                    <input type="radio" name="q19" value="B" disabled="">
+                    <label>Garantir acessibilidade aos usuários que navegam usando o teclado (Tab) ou leitores de tela.</label>
+                </div>
+            
+                <div class="option disabled" onclick="selecionarOpcao(this)">
+                    <input type="radio" name="q19" value="C" disabled="">
+                    <label>Avisar que o computador está sem bateria.</label>
+                </div>
+            
+                <div class="option disabled" onclick="selecionarOpcao(this)">
+                    <input type="radio" name="q19" value="D" disabled="">
+                    <label>Não possui função prática, é apenas um defeito estético.</label>
+                </div>
+            
+            </div>
+        </div><div class="question " id="q20">
+            <div class="question-header">
+                <span class="question-number">20</span>
+                <div>Um "Carrossel" (Carousel / Slider) de banners promocionais deve evitar:</div>
+            </div>
+            <div class="options ">
+                
+                <div class="option disabled" onclick="selecionarOpcao(this)">
+                    <input type="radio" name="q20" value="A" disabled="">
+                    <label>Ter setas de avançar e voltar.</label>
+                </div>
+            
+                <div class="option disabled" onclick="selecionarOpcao(this)">
+                    <input type="radio" name="q20" value="B" disabled="">
+                    <label>Bolinhas que indiquem a posição atual do slide.</label>
+                </div>
+            
+                <div class="option correct disabled" onclick="selecionarOpcao(this)">
+                    <input type="radio" name="q20" value="C" disabled="">
+                    <label>Transições automáticas velozes demais que impedem a leitura completa do texto pelo usuário.</label>
+                </div>
+            
+                <div class="option disabled" onclick="selecionarOpcao(this)">
+                    <input type="radio" name="q20" value="D" disabled="">
+                    <label>Estar posicionado no corpo da página.</label>
+                </div>
+            
+            </div>
+        </div><div class="question tf" id="q21">
+            <div class="question-header">
+                <span class="question-number">21</span>
+                <div>Em design de formulários, usar um menu suspenso (Dropdown Select) para escolher entre apenas duas opções ("Sim" ou "Não") é uma má prática de UX.</div>
+            </div>
+            <div class="options tf">
+                
+                <div class="option correct disabled" onclick="selecionarOpcao(this)">
+                    <input type="radio" name="q21" value="V" disabled="">
+                    <label>✅ Verdadeiro</label>
+                </div>
+            
+                <div class="option disabled" onclick="selecionarOpcao(this)">
+                    <input type="radio" name="q21" value="F" disabled="">
+                    <label>❌ Falso</label>
+                </div>
+            
+            </div>
+        </div><div class="question tf" id="q22">
+            <div class="question-header">
+                <span class="question-number">22</span>
+                <div>Tooltips (dicas flutuantes disparadas por hover do mouse) funcionam perfeitamente em celulares e telas touch sem nenhum ajuste.</div>
+            </div>
+            <div class="options tf">
+                
+                <div class="option disabled" onclick="selecionarOpcao(this)">
+                    <input type="radio" name="q22" value="V" disabled="">
+                    <label>✅ Verdadeiro</label>
+                </div>
+            
+                <div class="option correct disabled" onclick="selecionarOpcao(this)">
+                    <input type="radio" name="q22" value="F" disabled="">
+                    <label>❌ Falso</label>
+                </div>
+            
+            </div>
+        </div><div class="question tf" id="q23">
+            <div class="question-header">
+                <span class="question-number">23</span>
+                <div>A barra de navegação global (Navbar) e o rodapé completo (Footer) são classificados como "Organismos" no modelo do Atomic Design.</div>
+            </div>
+            <div class="options tf">
+                
+                <div class="option correct disabled" onclick="selecionarOpcao(this)">
+                    <input type="radio" name="q23" value="V" disabled="">
+                    <label>✅ Verdadeiro</label>
+                </div>
+            
+                <div class="option disabled" onclick="selecionarOpcao(this)">
+                    <input type="radio" name="q23" value="F" disabled="">
+                    <label>❌ Falso</label>
+                </div>
+            
+            </div>
+        </div><div class="question tf" id="q24">
+            <div class="question-header">
+                <span class="question-number">24</span>
+                <div>Um Modal Dialog pode ser disparado na tela sem que o usuário tenha clicado em nada, abrindo janelas inesperadas a qualquer momento.</div>
+            </div>
+            <div class="options tf">
+                
+                <div class="option disabled" onclick="selecionarOpcao(this)">
+                    <input type="radio" name="q24" value="V" disabled="">
+                    <label>✅ Verdadeiro</label>
+                </div>
+            
+                <div class="option correct disabled" onclick="selecionarOpcao(this)">
+                    <input type="radio" name="q24" value="F" disabled="">
+                    <label>❌ Falso</label>
+                </div>
+            
+            </div>
+        </div><div class="question tf" id="q25">
+            <div class="question-header">
+                <span class="question-number">25</span>
+                <div>Em uma hierarquia visual de botões em uma mesma área, é recomendável usar dois botões com estilo Primário (CTA) de mesmo peso visual competindo entre si.</div>
+            </div>
+            <div class="options tf">
+                
+                <div class="option disabled" onclick="selecionarOpcao(this)">
+                    <input type="radio" name="q25" value="V" disabled="">
+                    <label>✅ Verdadeiro</label>
+                </div>
+            
+                <div class="option correct disabled" onclick="selecionarOpcao(this)">
+                    <input type="radio" name="q25" value="F" disabled="">
+                    <label>❌ Falso</label>
+                </div>
+            
+            </div>
+        </div></div>
+
+            <div class="btn-grupo">
+                <button type="button" class="btn" onclick="corrigirQuiz()">✅ Verificar Respostas</button>
+                <button type="button" class="btn btn-secondary" onclick="limparQuiz()">🔄 Limpar Formulário</button>
+            </div>
+        </form>
+
+        <!-- RESULTADOS -->
+        <div class="result-box show" id="resultadoQuiz">
+            <div class="score-container">
+                <h3 style="color:#7c3aed; margin-bottom: 4px;">📊 Relatório Oficial de Desempenho</h3>
+                <div class="score" id="pontuacao">25 / 25</div>
+                <div class="score-status" id="statusPercentual">Aproveitamento: 100% (🏆 Excelente! Domínio pleno dos conceitos de UI e Design Systems.)</div>
+                <div class="score-meta" id="dadosEstudante">Estudante: Joyce Gabriela Gomes Pereira | Turma: Turma Geral | Data: 25/09/2026, 14:12:58</div>
+            </div>
+
+            <h4 style="color:#1e1b4b; margin-bottom:12px; font-size:1.05rem;">Correção Individual por Questão:</h4>
+            <div id="feedbackLista">
+                    <div class="feedback-item correct">
+                        ✅ <strong>Questão 1:</strong> Correta!
+                        <div class="explicacao">Átomos são os blocos fundamentais indivisíveis da interface (botões, inputs, ícones, cores e fontes).</div>
+                    </div>
+                
+                    <div class="feedback-item correct">
+                        ✅ <strong>Questão 2:</strong> Correta!
+                        <div class="explicacao">O Modal é invasivo e exige foco exclusivo no centro; o Drawer (off-canvas) desliza a partir da borda para fluxos como carrinhos ou filtros.</div>
+                    </div>
+                
+                    <div class="feedback-item correct">
+                        ✅ <strong>Questão 3:</strong> Correta!
+                        <div class="explicacao">O Switch/Toggle representa uma chave física de estado binário com efeito imediato, dispensando um botão posterior de "Salvar".</div>
+                    </div>
+                
+                    <div class="feedback-item correct">
+                        ✅ <strong>Questão 4:</strong> Correta!
+                        <div class="explicacao">A força do FAB está em simbolizar a ação focal incontestável da tela (ex: Novo E-mail, Adicionar Tarefa).</div>
+                    </div>
+                
+                    <div class="feedback-item correct">
+                        ✅ <strong>Questão 5:</strong> Correta!
+                        <div class="explicacao">A Hero Section é o cartão de visitas visual do site com headline de alto impacto, proposta de valor e CTA.</div>
+                    </div>
+                
+                    <div class="feedback-item correct">
+                        ✅ <strong>Questão 6:</strong> Correta!
+                        <div class="explicacao">O Stepper (Wizard) expressa uma jornada linear com ordem de dependência entre etapas anteriores e posteriores.</div>
+                    </div>
+                
+                    <div class="feedback-item correct">
+                        ✅ <strong>Questão 7:</strong> Correta!
+                        <div class="explicacao">O Skeleton antecipa a forma geométrica do conteúdo final, dando ao cérebro humano a sensação de carregamento progressivo.</div>
+                    </div>
+                
+                    <div class="feedback-item correct">
+                        ✅ <strong>Questão 8:</strong> Correta!
+                        <div class="explicacao">Breadcrumbs revelam o caminho hierárquico lógico e permitem retornar facilmente a categorias superiores.</div>
+                    </div>
+                
+                    <div class="feedback-item correct">
+                        ✅ <strong>Questão 9:</strong> Correta!
+                        <div class="explicacao">Toasts e Snackbars fornecem feedback de confirmação passivo e não intrusivo com tempo de vida efêmero.</div>
+                    </div>
+                
+                    <div class="feedback-item correct">
+                        ✅ <strong>Questão 10:</strong> Correta!
+                        <div class="explicacao">A Bottom Sheet é altamente confortável em smartphones por posicionar as opções na zona de alcance natural do polegar.</div>
+                    </div>
+                
+                    <div class="feedback-item correct">
+                        ✅ <strong>Questão 11:</strong> Correta!
+                        <div class="explicacao">Placeholders nunca devem substituir rótulos; labels permanentes garantem memória e acessibilidade aos leitores de tela.</div>
+                    </div>
+                
+                    <div class="feedback-item correct">
+                        ✅ <strong>Questão 12:</strong> Correta!
+                        <div class="explicacao">Radio buttons garantem exclusividade mútua e mantêm as poucas opções visíveis para comparação direta instantânea.</div>
+                    </div>
+                
+                    <div class="feedback-item correct">
+                        ✅ <strong>Questão 13:</strong> Correta!
+                        <div class="explicacao">Tokens de design são o DNA que conecta as escolhas visuais do Figma ao código em plataformas Web, iOS e Android.</div>
+                    </div>
+                
+                    <div class="feedback-item correct">
+                        ✅ <strong>Questão 14:</strong> Correta!
+                        <div class="explicacao">Moléculas são conjuntos simples de dois ou mais átomos que funcionam de maneira combinada.</div>
+                    </div>
+                
+                    <div class="feedback-item correct">
+                        ✅ <strong>Questão 15:</strong> Correta!
+                        <div class="explicacao">Mais de 5 itens comprimem os alvos de toque abaixo do limite ergonômico seguro de 44x44px.</div>
+                    </div>
+                
+                    <div class="feedback-item correct">
+                        ✅ <strong>Questão 16:</strong> Correta!
+                        <div class="explicacao">O Accordion atua na economia de espaço vertical, mantendo a tela limpa e escaneável.</div>
+                    </div>
+                
+                    <div class="feedback-item correct">
+                        ✅ <strong>Questão 17:</strong> Correta!
+                        <div class="explicacao">O Card é uma metáfora visual de cartão físico: reúne mídia, textos e ações em um bloco coeso.</div>
+                    </div>
+                
+                    <div class="feedback-item correct">
+                        ✅ <strong>Questão 18:</strong> Correta!
+                        <div class="explicacao">Checkboxes permitem marcar zero, uma ou múltiplas alternativas em uma lista independente.</div>
+                    </div>
+                
+                    <div class="feedback-item correct">
+                        ✅ <strong>Questão 19:</strong> Correta!
+                        <div class="explicacao">O anel de foco é obrigatório por diretrizes de acessibilidade (WCAG) para navegação sem mouse.</div>
+                    </div>
+                
+                    <div class="feedback-item correct">
+                        ✅ <strong>Questão 20:</strong> Correta!
+                        <div class="explicacao">Trocas automáticas rápidas causam frustração e tornam o conteúdo inacessível para leitores mais lentos.</div>
+                    </div>
+                
+                    <div class="feedback-item correct">
+                        ✅ <strong>Questão 21:</strong> Correta!
+                        <div class="explicacao">Verdadeiro. Com apenas 2 opções, o Dropdown exige dois cliques desnecessários; um Radio Button ou Switch expõe a escolha imediatamente.</div>
+                    </div>
+                
+                    <div class="feedback-item correct">
+                        ✅ <strong>Questão 22:</strong> Correta!
+                        <div class="explicacao">Falso. Smartphones não possuem estado de hover (passar o mouse sem tocar). Informações vitais não devem depender exclusivamente de tooltips.</div>
+                    </div>
+                
+                    <div class="feedback-item correct">
+                        ✅ <strong>Questão 23:</strong> Correta!
+                        <div class="explicacao">Verdadeiro. Organismos são seções complexas e autônomas formadas por moléculas e átomos combinados.</div>
+                    </div>
+                
+                    <div class="feedback-item correct">
+                        ✅ <strong>Questão 24:</strong> Correta!
+                        <div class="explicacao">Falso. Modais inesperados geram atrito, rejeição de marca e quebra de contexto na experiência do usuário.</div>
+                    </div>
+                
+                    <div class="feedback-item correct">
+                        ✅ <strong>Questão 25:</strong> Correta!
+                        <div class="explicacao">Falso. Deve haver hierarquia evidente (ex: 1 Primário em destaque ao lado de 1 Secundário sutil) para guiar a ação sem indecisão.</div>
+                    </div>
+                </div>
+
+            <!-- BLOCO DE CÓPIA DO RELATÓRIO -->
+            <div class="relatorio-textarea-box">
+                <h4>📋 Resumo Textual para Copiar e Colar:</h4>
+                <textarea class="relatorio-textarea" id="txtRelatorio" readonly=""></textarea>
+                <button type="button" class="btn btn-secondary" style="margin-top:8px; font-size:0.8rem; padding:8px 16px;" onclick="copiarRelatorio(this)">
+                    📋 Copiar Texto do Relatório
+                </button>
+            </div>
+
+            <div class="btn-grupo" style="margin-top:20px;">
+                <button type="button" class="btn btn-success" onclick="window.print()">🖨️ Imprimir / Salvar em PDF</button>
+                <a href="https://almeida-cma.github.io/mob07/form.html#entrega" class="btn" style="text-decoration:none;">🚀 Ir para o Link de Envio</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER DE ENTREGA -->
+    <footer class="footer-card" id="entrega">
+        <div class="destaque-footer">
+            📌 <strong>INSTRUÇÕES DE ENTREGA:</strong> Após conferir o gabarito das 25 questões, você pode imprimir o relatório em PDF ou copiar o resumo gerado acima para colar no formulário oficial de registro pedagógico.
+        </div>
+
+        <h4 style="margin-bottom: 10px; color: #7c3aed;">📋 Formulário Oficial de Entrega</h4>
+
+        <div class="footer-links">
+            <a href="https://forms.gle/zbUB57A4FteUDsKSA" target="_blank" class="footer-link">
+                <span style="font-size:1.6rem;">📝</span>
+                <div style="text-align:left; flex:1;">
+                    <strong>Enviar Relatório pelo Google Forms</strong>
+                    <small style="display:block; color:#64748b; font-size:0.75rem;">Anexe o PDF ou cole o texto gerado</small>
+                </div>
+                <span style="font-size:1.2rem; font-weight:bold; color:#22c55e;">→</span>
+            </a>
+        </div>
+
+        <p style="margin-top: 18px; font-size: 0.75rem; color: #64748b;">
+            🎨 Tema 07 • Biblioteca de Componentes, Containers e Design Systems • 2026
+        </p>
+    </footer>
+
+</div>
+
+<button class="btn-top" onclick="document.getElementById('topo').scrollIntoView({behavior:'smooth'})">⬆️ Topo</button>
+
+<script>
+    /* ============================================================
+       BANCO DE DADOS DAS 25 QUESTÕES DO GLOSSÁRIO
+       ============================================================ */
+    const BANCO_QUESTOES = [
+        {
+            id: 'q1',
+            tipo: 'mc',
+            pergunta: 'No Atomic Design de Brad Frost, um botão isolado com seu estilo visual é categorizado em qual nível?',
+            opcoes: [
+                { id: 'A', texto: 'Átomo' },
+                { id: 'B', texto: 'Molécula' },
+                { id: 'C', texto: 'Organismo' },
+                { id: 'D', texto: 'Template' }
+            ],
+            correta: 'A',
+            explicacao: 'Átomos são os blocos fundamentais indivisíveis da interface (botões, inputs, ícones, cores e fontes).'
+        },
+        {
+            id: 'q2',
+            tipo: 'mc',
+            pergunta: 'Qual a principal diferença de comportamento e experiência (UX) entre um Modal (Dialog) e um Drawer (Gaveta lateral)?',
+            opcoes: [
+                { id: 'A', texto: 'O Modal nunca possui backdrop; o Drawer sempre escurece toda a tela.' },
+                { id: 'B', texto: 'O Modal centraliza e bloqueia totalmente o fluxo com backdrop; o Drawer surge pela lateral preservando o contexto da tela.' },
+                { id: 'C', texto: 'O Modal só funciona em telas mobile; o Drawer só pode ser usado em desktops.' },
+                { id: 'D', texto: 'Não há diferença conceitual, são apenas nomes sinônimos do Figma.' }
+            ],
+            correta: 'B',
+            explicacao: 'O Modal é invasivo e exige foco exclusivo no centro; o Drawer (off-canvas) desliza a partir da borda para fluxos como carrinhos ou filtros.'
+        },
+        {
+            id: 'q3',
+            tipo: 'mc',
+            pergunta: 'Ao projetar a tela de preferências de um aplicativo onde o usuário ativa ou desativa o "Modo Noturno" com efeito instantâneo, qual componente é o mais indicado?',
+            opcoes: [
+                { id: 'A', texto: 'Caixa de Seleção (Checkbox)' },
+                { id: 'B', texto: 'Botão de Rádio (Radio Button)' },
+                { id: 'C', texto: 'Interruptor (Switch / Toggle)' },
+                { id: 'D', texto: 'Menu Suspenso (Dropdown Select)' }
+            ],
+            correta: 'C',
+            explicacao: 'O Switch/Toggle representa uma chave física de estado binário com efeito imediato, dispensando um botão posterior de "Salvar".'
+        },
+        {
+            id: 'q4',
+            tipo: 'mc',
+            pergunta: 'Em relação ao Botão de Ação Flutuante (FAB - Floating Action Button), qual é a regra de ouro recomendada pelas diretrizes de UI?',
+            opcoes: [
+                { id: 'A', texto: 'Colocar pelo menos 3 FABs em cantos diferentes da tela para facilitar o acesso.' },
+                { id: 'B', texto: 'O FAB deve sempre conter um parágrafo de texto explicativo no interior.' },
+                { id: 'C', texto: 'O FAB deve se mover junto com o scroll do texto até sair da visão.' },
+                { id: 'D', texto: 'Ter apenas um único FAB soberano por tela, representando a ação primária e mais construtiva.' }
+            ],
+            correta: 'D',
+            explicacao: 'A força do FAB está em simbolizar a ação focal incontestável da tela (ex: Novo E-mail, Adicionar Tarefa).'
+        },
+        {
+            id: 'q5',
+            tipo: 'mc',
+            pergunta: 'A Seção de Destaque situada no topo de uma Landing Page (imediatamente abaixo do menu e acima da dobra) recebe qual nomenclatura de mercado?',
+            opcoes: [
+                { id: 'A', texto: 'Accordion Panel' },
+                { id: 'B', texto: 'Hero Section (ou Jumbotron)' },
+                { id: 'C', texto: 'Mega Footer' },
+                { id: 'D', texto: 'Bottom Sheet' }
+            ],
+            correta: 'B',
+            explicacao: 'A Hero Section é o cartão de visitas visual do site com headline de alto impacto, proposta de valor e CTA.'
+        },
+        {
+            id: 'q6',
+            tipo: 'mc',
+            pergunta: 'Para dividir um checkout de compras complexo em etapas sequenciais obrigatórias (1. Dados -> 2. Entrega -> 3. Pagamento), qual componente deve ser adotado?',
+            opcoes: [
+                { id: 'A', texto: 'Abas paralelas (Tabs)' },
+                { id: 'B', texto: 'Trilha de Pão (Breadcrumbs)' },
+                { id: 'C', texto: 'Passo a Passo (Stepper / Wizard)' },
+                { id: 'D', texto: 'Tooltip' }
+            ],
+            correta: 'C',
+            explicacao: 'O Stepper (Wizard) expressa uma jornada linear com ordem de dependência entre etapas anteriores e posteriores.'
+        },
+        {
+            id: 'q7',
+            tipo: 'mc',
+            pergunta: 'Qual a vantagem de usar Esqueletos de Carregamento (Skeleton Screen) em vez de Spinners (rodinhas giratórias) enquanto dados são carregados da API?',
+            opcoes: [
+                { id: 'A', texto: 'Garantem que a página gaste zero dados de internet.' },
+                { id: 'B', texto: 'Funcionam sem a necessidade de nenhuma conexão de rede.' },
+                { id: 'C', texto: 'Substituem a necessidade de usar banco de dados.' },
+                { id: 'D', texto: 'Reduzem a percepção do tempo de espera e previnem saltos bruscos de layout (Layout Shifts).' }
+            ],
+            correta: 'D',
+            explicacao: 'O Skeleton antecipa a forma geométrica do conteúdo final, dando ao cérebro humano a sensação de carregamento progressivo.'
+        },
+        {
+            id: 'q8',
+            tipo: 'mc',
+            pergunta: 'A trilha textual horizontal "Início > Eletro > Telefonia > Fones de Ouvido" é conhecida como:',
+            opcoes: [
+                { id: 'A', texto: 'Trilha de Navegação (Breadcrumb)' },
+                { id: 'B', texto: 'Barra Inferior (Bottom Navigation)' },
+                { id: 'C', texto: 'Menu Flutuante (Popover)' },
+                { id: 'D', texto: 'Sanfona (Accordion)' }
+            ],
+            correta: 'A',
+            explicacao: 'Breadcrumbs revelam o caminho hierárquico lógico e permitem retornar facilmente a categorias superiores.'
+        },
+        {
+            id: 'q9',
+            tipo: 'mc',
+            pergunta: 'Uma mensagem sutil que aparece no canto inferior da tela dizendo "Link copiado!" e desaparece sozinha após 3 segundos é um:',
+            opcoes: [
+                { id: 'A', texto: 'Modal de Exclusão' },
+                { id: 'B', texto: 'Toast / Snackbar' },
+                { id: 'C', texto: 'Banner Crítico de Alerta' },
+                { id: 'D', texto: 'Drawer Lateral' }
+            ],
+            correta: 'B',
+            explicacao: 'Toasts e Snackbars fornecem feedback de confirmação passivo e não intrusivo com tempo de vida efêmero.'
+        },
+        {
+            id: 'q10',
+            tipo: 'mc',
+            pergunta: 'Em aplicativos móveis, a superfície que sobe a partir da base da tela aproveitando a ergonomia do polegar para ações rápidas chama-se:',
+            opcoes: [
+                { id: 'A', texto: 'Accordion' },
+                { id: 'B', texto: 'Breadcrumb' },
+                { id: 'C', texto: 'Folha Inferior (Bottom Sheet)' },
+                { id: 'D', texto: 'Hero Banner' }
+            ],
+            correta: 'C',
+            explicacao: 'A Bottom Sheet é altamente confortável em smartphones por posicionar as opções na zona de alcance natural do polegar.'
+        },
+        {
+            id: 'q11',
+            tipo: 'mc',
+            pergunta: 'Qual erro grave de usabilidade ocorre quando um designer remove o rótulo (label) de um campo e deixa apenas o placeholder?',
+            opcoes: [
+                { id: 'A', texto: 'O campo passa a aceitar apenas letras maiúsculas.' },
+                { id: 'B', texto: 'O navegador recarrega a página automaticamente.' },
+                { id: 'C', texto: 'A tela fica em preto e branco.' },
+                { id: 'D', texto: 'Quando o usuário digita a primeira letra, a dica desaparece e ele perde a referência do que o campo solicitava.' }
+            ],
+            correta: 'D',
+            explicacao: 'Placeholders nunca devem substituir rótulos; labels permanentes garantem memória e acessibilidade aos leitores de tela.'
+        },
+        {
+            id: 'q12',
+            tipo: 'mc',
+            pergunta: 'Em um formulário onde o cliente precisa escolher uma única forma de entrega entre 3 opções disponíveis (Econômica, Expressa ou Retirada), o componente mais transparente é:',
+            opcoes: [
+                { id: 'A', texto: 'Botões de Rádio (Radio Buttons)' },
+                { id: 'B', texto: 'Caixas de Seleção (Checkboxes)' },
+                { id: 'C', texto: 'Interruptor (Switch)' },
+                { id: 'D', texto: 'Tooltip' }
+            ],
+            correta: 'A',
+            explicacao: 'Radio buttons garantem exclusividade mútua e mantêm as poucas opções visíveis para comparação direta instantânea.'
+        },
+        {
+            id: 'q13',
+            tipo: 'mc',
+            pergunta: 'O que são "Design Tokens" em um Design System moderno?',
+            opcoes: [
+                { id: 'A', texto: 'Criptomoedas criadas para pagar designers freelance.' },
+                { id: 'B', texto: 'Decisões visuais atômicas (cores, espaçamentos, tipografia) armazenadas como variáveis reutilizáveis.' },
+                { id: 'C', texto: 'Senhas de acesso exclusivas para abrir o painel de administração.' },
+                { id: 'D', texto: 'Imagens exportadas exclusivamente no formato SVG.' }
+            ],
+            correta: 'B',
+            explicacao: 'Tokens de design são o DNA que conecta as escolhas visuais do Figma ao código em plataformas Web, iOS e Android.'
+        },
+        {
+            id: 'q14',
+            tipo: 'mc',
+            pergunta: 'No Atomic Design, a união de um campo de busca (Átomo Input) com um botão pesquisar (Átomo Botão) forma:',
+            opcoes: [
+                { id: 'A', texto: 'Um Template' },
+                { id: 'B', texto: 'Outro Átomo' },
+                { id: 'C', texto: 'Uma Molécula' },
+                { id: 'D', texto: 'Uma Página' }
+            ],
+            correta: 'C',
+            explicacao: 'Moléculas são conjuntos simples de dois ou mais átomos que funcionam de maneira combinada.'
+        },
+        {
+            id: 'q15',
+            tipo: 'mc',
+            pergunta: 'Em uma barra de navegação inferior mobile (Bottom Navigation Bar), qual é a quantidade máxima recomendada de destinos?',
+            opcoes: [
+                { id: 'A', texto: 'De 8 a 12 itens' },
+                { id: 'B', texto: 'Apenas 1 item' },
+                { id: 'C', texto: 'Quantos couberem sem limite' },
+                { id: 'D', texto: 'De 3 a 5 itens' }
+            ],
+            correta: 'D',
+            explicacao: 'Mais de 5 itens comprimem os alvos de toque abaixo do limite ergonômico seguro de 44x44px.'
+        },
+        {
+            id: 'q16',
+            tipo: 'mc',
+            pergunta: 'Qual a principal função do componente "Accordion" (Sanfona) em uma página de FAQ?',
+            opcoes: [
+                { id: 'A', texto: 'Tocar uma música quando o mouse passa sobre o título.' },
+                { id: 'B', texto: 'Compactar respostas longas, revelando o texto apenas quando o usuário clica na pergunta.' },
+                { id: 'C', texto: 'Mudar a cor de fundo de todo o monitor do usuário.' },
+                { id: 'D', texto: 'Impedir que robôs leiam o conteúdo da página.' }
+            ],
+            correta: 'B',
+            explicacao: 'O Accordion atua na economia de espaço vertical, mantendo a tela limpa e escaneável.'
+        },
+        {
+            id: 'q17',
+            tipo: 'mc',
+            pergunta: 'O componente "Card" (Cartão) em UI design é definido como:',
+            opcoes: [
+                { id: 'A', texto: 'Uma etiqueta de apenas uma palavra usada para indicar preços.' },
+                { id: 'B', texto: 'Um comando do terminal do Linux.' },
+                { id: 'C', texto: 'Um recipiente autônomo com bordas/sombra que agrupa informações heterogêneas sobre um único assunto.' },
+                { id: 'D', texto: 'Um link invisível que só funciona com comando de voz.' }
+            ],
+            correta: 'C',
+            explicacao: 'O Card é uma metáfora visual de cartão físico: reúne mídia, textos e ações em um bloco coeso.'
+        },
+        {
+            id: 'q18',
+            tipo: 'mc',
+            pergunta: 'Para selecionar múltiplos interesses em um cadastro (ex: Esportes, Cinema e Música ao mesmo tempo), deve-se utilizar:',
+            opcoes: [
+                { id: 'A', texto: 'Botões de Rádio (Radio Buttons)' },
+                { id: 'B', texto: 'Breadcrumbs' },
+                { id: 'C', texto: 'Hero Section' },
+                { id: 'D', texto: 'Caixas de Seleção (Checkboxes)' }
+            ],
+            correta: 'D',
+            explicacao: 'Checkboxes permitem marcar zero, uma ou múltiplas alternativas em uma lista independente.'
+        },
+        {
+            id: 'q19',
+            tipo: 'mc',
+            pergunta: 'Qual o papel do indicador visual de "Focus" (borda ou anel contrastante) em campos e botões?',
+            opcoes: [
+                { id: 'A', texto: 'Deixar o site mais lento de propósito para carregar animações.' },
+                { id: 'B', texto: 'Garantir acessibilidade aos usuários que navegam usando o teclado (Tab) ou leitores de tela.' },
+                { id: 'C', texto: 'Avisar que o computador está sem bateria.' },
+                { id: 'D', texto: 'Não possui função prática, é apenas um defeito estético.' }
+            ],
+            correta: 'B',
+            explicacao: 'O anel de foco é obrigatório por diretrizes de acessibilidade (WCAG) para navegação sem mouse.'
+        },
+        {
+            id: 'q20',
+            tipo: 'mc',
+            pergunta: 'Um "Carrossel" (Carousel / Slider) de banners promocionais deve evitar:',
+            opcoes: [
+                { id: 'A', texto: 'Ter setas de avançar e voltar.' },
+                { id: 'B', texto: 'Bolinhas que indiquem a posição atual do slide.' },
+                { id: 'C', texto: 'Transições automáticas velozes demais que impedem a leitura completa do texto pelo usuário.' },
+                { id: 'D', texto: 'Estar posicionado no corpo da página.' }
+            ],
+            correta: 'C',
+            explicacao: 'Trocas automáticas rápidas causam frustração e tornam o conteúdo inacessível para leitores mais lentos.'
+        },
+        {
+            id: 'q21',
+            tipo: 'tf',
+            pergunta: 'Em design de formulários, usar um menu suspenso (Dropdown Select) para escolher entre apenas duas opções ("Sim" ou "Não") é uma má prática de UX.',
+            opcoes: [
+                { id: 'V', texto: '✅ Verdadeiro' },
+                { id: 'F', texto: '❌ Falso' }
+            ],
+            correta: 'V',
+            explicacao: 'Verdadeiro. Com apenas 2 opções, o Dropdown exige dois cliques desnecessários; um Radio Button ou Switch expõe a escolha imediatamente.'
+        },
+        {
+            id: 'q22',
+            tipo: 'tf',
+            pergunta: 'Tooltips (dicas flutuantes disparadas por hover do mouse) funcionam perfeitamente em celulares e telas touch sem nenhum ajuste.',
+            opcoes: [
+                { id: 'V', texto: '✅ Verdadeiro' },
+                { id: 'F', texto: '❌ Falso' }
+            ],
+            correta: 'F',
+            explicacao: 'Falso. Smartphones não possuem estado de hover (passar o mouse sem tocar). Informações vitais não devem depender exclusivamente de tooltips.'
+        },
+        {
+            id: 'q23',
+            tipo: 'tf',
+            pergunta: 'A barra de navegação global (Navbar) e o rodapé completo (Footer) são classificados como "Organismos" no modelo do Atomic Design.',
+            opcoes: [
+                { id: 'V', texto: '✅ Verdadeiro' },
+                { id: 'F', texto: '❌ Falso' }
+            ],
+            correta: 'V',
+            explicacao: 'Verdadeiro. Organismos são seções complexas e autônomas formadas por moléculas e átomos combinados.'
+        },
+        {
+            id: 'q24',
+            tipo: 'tf',
+            pergunta: 'Um Modal Dialog pode ser disparado na tela sem que o usuário tenha clicado em nada, abrindo janelas inesperadas a qualquer momento.',
+            opcoes: [
+                { id: 'V', texto: '✅ Verdadeiro' },
+                { id: 'F', texto: '❌ Falso' }
+            ],
+            correta: 'F',
+            explicacao: 'Falso. Modais inesperados geram atrito, rejeição de marca e quebra de contexto na experiência do usuário.'
+        },
+        {
+            id: 'q25',
+            tipo: 'tf',
+            pergunta: 'Em uma hierarquia visual de botões em uma mesma área, é recomendável usar dois botões com estilo Primário (CTA) de mesmo peso visual competindo entre si.',
+            opcoes: [
+                { id: 'V', texto: '✅ Verdadeiro' },
+                { id: 'F', texto: '❌ Falso' }
+            ],
+            correta: 'F',
+            explicacao: 'Falso. Deve haver hierarquia evidente (ex: 1 Primário em destaque ao lado de 1 Secundário sutil) para guiar a ação sem indecisão.'
+        }
+    ];
+
+    /* ============================================================
+       RENDERIZAÇÃO AUTOMÁTICA DAS 25 QUESTÕES
+       ============================================================ */
+    const container = document.getElementById('questoesContainer');
+
+    BANCO_QUESTOES.forEach((q, index) => {
+        const divQ = document.createElement('div');
+        divQ.className = `question ${q.tipo === 'tf' ? 'tf' : ''}`;
+        divQ.id = q.id;
+
+        let opcoesHtml = '';
+        q.opcoes.forEach(op => {
+            opcoesHtml += `
+                <div class="option" onclick="selecionarOpcao(this)">
+                    <input type="radio" name="${q.id}" value="${op.id}">
+                    <label>${op.texto}</label>
+                </div>
+            `;
+        });
+
+        divQ.innerHTML = `
+            <div class="question-header">
+                <span class="question-number">${index + 1}</span>
+                <div>${q.pergunta}</div>
+            </div>
+            <div class="options ${q.tipo === 'tf' ? 'tf' : ''}">
+                ${opcoesHtml}
+            </div>
+        `;
+
+        container.appendChild(divQ);
+    });
+
+    /* ============================================================
+       INTERAÇÃO DE SELEÇÃO POR CLIQUE NO CARD DA OPÇÃO
+       ============================================================ */
+    function selecionarOpcao(el) {
+        if (el.classList.contains('disabled')) return;
+        const radio = el.querySelector('input[type="radio"]');
+        if (radio) radio.checked = true;
+    }
+
+    /* ============================================================
+       CORREÇÃO DO QUIZ E GERAÇÃO DE RELATÓRIO
+       ============================================================ */
+    function corrigirQuiz() {
+        let acertos = 0;
+        const total = BANCO_QUESTOES.length;
+        let feedbackHTML = '';
+        let resumoLinhas = [];
+
+        const nome = document.getElementById('nomeAluno').value.trim() || 'Estudante Anônimo';
+        const turma = document.getElementById('turmaAluno').value.trim() || 'Turma Geral';
+        const dataHora = new Date().toLocaleString('pt-BR');
+
+        BANCO_QUESTOES.forEach((q, index) => {
+            const num = index + 1;
+            const selecionado = document.querySelector(`input[name="${q.id}"]:checked`);
+            const qDiv = document.getElementById(q.id);
+            const options = qDiv.querySelectorAll('.option');
+
+            // Marca visualmente as respostas
+            options.forEach(opt => {
+                const r = opt.querySelector('input[type="radio"]');
+                if (r.value === q.correta) {
+                    opt.classList.add('correct');
+                } else if (r.checked) {
+                    opt.classList.add('wrong');
+                }
+                r.disabled = true;
+                opt.classList.add('disabled');
+            });
+
+            if (selecionado && selecionado.value === q.correta) {
+                acertos++;
+                feedbackHTML += `
+                    <div class="feedback-item correct">
+                        ✅ <strong>Questão ${num}:</strong> Correta!
+                        <div class="explicacao">${q.explicacao}</div>
+                    </div>
+                `;
+                resumoLinhas.push(`Q${num}: ACERTO`);
+            } else {
+                feedbackHTML += `
+                    <div class="feedback-item wrong">
+                        ❌ <strong>Questão ${num}:</strong> Incorreta (Gabarito Oficial: ${q.correta}).
+                        <div class="explicacao">${q.explicacao}</div>
+                    </div>
+                `;
+                resumoLinhas.push(`Q${num}: ERRO (Gabarito: ${q.correta})`);
+            }
+        });
+
+        // Cálculos e estatísticas
+        const percentual = Math.round((acertos / total) * 100);
+        let status = 'Precisa revisar os conceitos fundamentais.';
+        if (percentual >= 90) status = '🏆 Excelente! Domínio pleno dos conceitos de UI e Design Systems.';
+        else if (percentual >= 70) status = '👏 Muito Bom! Boa compreensão das nomenclaturas e heurísticas.';
+        else if (percentual >= 50) status = '👍 Regular. Recomenda-se reler as seções de tomada de decisão.';
+
+        // Atualização da UI
+        document.getElementById('pontuacao').innerText = `${acertos} / ${total}`;
+        document.getElementById('statusPercentual').innerText = `Aproveitamento: ${percentual}% (${status})`;
+        document.getElementById('dadosEstudante').innerText = `Estudante: ${nome} | Turma: ${turma} | Data: ${dataHora}`;
+        document.getElementById('feedbackLista').innerHTML = feedbackHTML;
+
+        // Gerar relatório em texto puro para a caixa de cópia
+        const relatorioTexto = `====================================================
+RELATÓRIO DE DESEMPENHO: TEMA 07 (DESIGN SYSTEMS & GLOSSÁRIO)
+Estudante: ${nome}
+Turma/Matrícula: ${turma}
+Data/Hora: ${dataHora}
+Nota Final: ${acertos} de ${total} (${percentual}%)
+Resultado: ${status}
+====================================================
+DETALHAMENTO:
+${resumoLinhas.join(' | ')}
+====================================================`;
+
+        document.getElementById('txtRelatorio').value = relatorioTexto;
+
+        // Exibir caixa de resultado e rolar suavemente
+        const resBox = document.getElementById('resultadoQuiz');
+        resBox.classList.add('show');
+        resBox.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    /* ============================================================
+       LIMPAR RESPOSTAS
+       ============================================================ */
+    function limparQuiz() {
+        document.querySelectorAll('input[type="radio"]').forEach(r => {
+            r.checked = false;
+            r.disabled = false;
+        });
+        document.querySelectorAll('.option').forEach(opt => {
+            opt.classList.remove('correct', 'wrong', 'disabled');
+        });
+        document.getElementById('resultadoQuiz').classList.remove('show');
+        document.getElementById('txtRelatorio').value = '';
+        window.scrollTo({ top: document.getElementById('formQuiz').offsetTop - 20, behavior: 'smooth' });
+    }
+
+    /* ============================================================
+       COPIAR TEXTO DO RELATÓRIO
+       ============================================================ */
+    function copiarRelatorio(btn) {
+        const texto = document.getElementById('txtRelatorio').value;
+        if (!texto) return;
+
+        navigator.clipboard.writeText(texto).then(() => {
+            const orig = btn.innerText;
+            btn.innerText = '✅ Relatório Copiado com Sucesso!';
+            setTimeout(() => btn.innerText = orig, 2000);
+        });
+    }
+</script>
+
+
+</body></html>
